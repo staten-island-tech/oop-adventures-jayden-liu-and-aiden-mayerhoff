@@ -1,35 +1,52 @@
 class Player:
-    def __init__(self, speed, health, attack, coins):
+    def __init__(self, speed, health, attack, coins, gun, grenade):
         self.speed = speed  
         self.health = health
-        self.attack = attack
+        self.attack = attack 
+        self.coins = coins
+        self.gun = gun
+        self.grenade = grenade
+
 
     def gun_upgrade(self):
-        coins-=15
+        self.coins-=15
         self.speed+=3
         self.attack+=5
-        print("Your auto bought GUN UPGRADE")
+        self.gun=True
+        print("YOU AUTO-BOUGHT GUN UPGRADE:") 
     
     def grenade_upgrade(self):
-        coins-=30
+        self.coins-=30
         self.speed-=3
         self.attack+=5
+        self.grenade = True
+        print("YOU AUTO-BOUGHT GRENADE UPGRADE:")
 
     def regular_kill(self):
-        coins+=1
+        self.coins+=1
     def speed_kill(self):
-        coins+=3
+        self.coins+=3
     def tank_kill(self):
-        coins+=8
+        self.coins+=8
     def boss_kill(self):
-        coins+=25
+        self.coins+=25
         
     def display(self):
        print(f'Speed: {self.speed}')
        print(f'Health: {self.health}')
        print(f'Attack: {self.attack}')
-p =Player(7, 100, 5)
+       if self.gun ==True:
+           print("GUN UPGRADE")
+       if self.grenade ==True:
+           print("GRENADE UPGRADE")
+           
+p =Player(7, 100, 5, 45, False, False)
 
 if p.coins>=15:
     p.gun_upgrade()
+    p.display()
+
+if p.coins>=30 and p.gun==True:
+    p.grenade_upgrade()
+    p.display()
 
