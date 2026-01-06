@@ -32,4 +32,16 @@ class Zombie:
 z = Zombie(0,0,0)
 z.boss()
 z.display()
-         
+
+import random
+random_number = random.randint(1,5)
+if random_number = 1: 
+if random_number = 1:
+if random_number = 1:
+if random_number = 1:
+
+if z.speed < p.speed:
+    z.health = z.health - p.attack 
+    print("You attacked the zombie! The zombie's health is {z.health} now")
+else p.health = p.health - z.attack:
+    print("The zombie attacked you! Your health is {z.health} now")
