@@ -52,25 +52,48 @@ class Player:
            print("GRENADE UPGRADE")
     
     def shop(self):
-        self.shopping == False
-        print(f"heal:-5c, +10h, \n"
-              "steroids:-7c, +2a \n"
-              "redbull:-10c, +2s")
+        self.shopping == True
+        print(f"1) heal:-5 coins, +10 health, \n"
+              "2) steroids:-7 coins, +2 attack \n"
+              "3) redbull:-10 coins, +2 speed")
         purchase=input("What to Buy? ")
-        while self.shopping ==True:
-            for i in ["heal, steroids, redbull"]:
-                if purchase != i:
-                    print("Try again")
-                    break
+        print(purchase)
+        if purchase == ("heal") or ("1"):
+            if self.coins>=5:
+                self.heal()
+                print("Purchased heal \n"
+                  f"Your health increased to {self.health}")
+            else:
+                print("You are too poor\n"
+                      f"You have {self.coins} coins")
+        elif purchase == ("steroids") or ("2"):
+            if self.coins>=7:
+                self.steroids()
+                print("Purchased steroids \n"
+                  f"Your attack increased to {self.attack}")
+            else:
+                print("You are too poor\n"
+                      f"You have {self.coins} coins")
+        elif purchase == ("redbull") or ("3"):
+            if self.coins>=10:
+                self.redbull()
+                print("Purchased redbull \n"
+                  f"Your speed increased to {self.speed}")
+            else:
+                print("You are too poor\n"
+                      f"You have {self.coins} coins")
+        else:
+            print("Invalid Item: Retry")
            
-p =Player(7, 100, 5, 0, False, False, False)
+p =Player(7, 100, 5, 100, False, False, False)
 
 p.shop()
+"""
 if p.coins>=15 and p.gun==False:
     p.gun_upgrade()
     p.display()
 
 if p.coins>=30 and p.gun==True and p.grenade==False:
     p.grenade_upgrade()
-    p.display()
+    p.display()"""
 
