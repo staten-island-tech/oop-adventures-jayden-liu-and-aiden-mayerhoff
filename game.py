@@ -33,19 +33,19 @@ z = Zombie(0,0,0)
 z.boss()
 
 import random
-random_number = random.randint(1,5)
+random_number = random.randint(1,6)
 
-if random_number <= 2: 
+if random_number <= 3: 
     z.regular()
     z.display()
     print("You've encountered a Regular zombie!")
 
-if random_number == 3 or random_number == 4:
+if random_number == 4 or random_number == 5:
     z.fast()
     z.display()
     print("You've encountered a Fast zombie!")
     
-if random_number == 5:
+if random_number == 6:
     z.tank()
     z.display()
     print("You've encountered a Tank zombie!")
@@ -54,9 +54,10 @@ if random_number == 5:
     z.health = z.health - p.attack 
     print("You attacked the zombie! The zombie's health is {z.health} now")
     p.health = p.health - z.attack:
-    print("The zombie attacked you! Your health is {z.health} now")
+    print("The zombie attacked you! Your health is {z.health} now")"""
 
-else p.health = p.health - z.attack:
+"""while p.speed < z.speed
+    p.health = p.health - z.attack:
     print("The zombie attacked you! Your health is {z.health} now")
     z.health = z.health - p.attack 
     print("You attacked the zombie! The zombie's health is {z.health} now")"""
