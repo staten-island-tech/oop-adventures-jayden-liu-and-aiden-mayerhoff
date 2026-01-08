@@ -1,3 +1,5 @@
+from zombie import Zombie
+
 class Player:
     def __init__(self, speed, health, attack, coins, gun, grenade,shopping):
         self.speed = speed  
