@@ -124,24 +124,41 @@ class Player:
                 print("Invalid Item: Retry")
         
         def round (self):
-            self.round_count=-1
+            self.round_count=+1
 
            
-p =Player(7, 100, 5, 100, False, False, False)
+p =Player(7, 100, 5, 100, False, False, False,0)
 
 z = Zombie(0,0,0)
-z.boss()
+z.random()
 z.display()
 
 while z.speed < p.speed:
     z.health = z.health - p.attack 
-    print("You attacked the zombie! The zombie's health is {z.health} now")
+    print(f"You attacked the zombie! The zombie's health is {z.health} now")
     p.health = p.health - z.attack  
-    print("The zombie attacked you! Your health is {z.health} now")
+    print(f"The zombie attacked you! Your health is {z.health} now")
+
+    
+
+    if z.health <= 0:
+        p.round()
+        break
+    
+    if p.health <= 0:
+        print(f"You Lose! You only survived to round {p.round_count}")
+        break
 
 while p.speed < z.speed:
     p.health = p.health - z.attack
-    print("The zombie attacked you! Your health is {z.health} now")
+    print(f"The zombie attacked you! Your health is {z.health} now")
     z.health = z.health - p.attack 
-    print("You attacked the zombie! The zombie's health is {z.health} now")
+    print(f"You attacked the zombie! The zombie's health is {z.health} now")
+
+    if z.health <= 0:
+        break
+
+    if p.health <= 0:
+        print(f"You Lose! You only survived to round {p.round_count}")
+        break
 
