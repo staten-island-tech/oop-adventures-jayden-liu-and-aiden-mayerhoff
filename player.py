@@ -1,14 +1,15 @@
 from zombie import Zombie
 
 class Player:
-    def __init__(self, speed, health, attack, coins, gun, grenade,shopping):
+    def __init__(self, speed, health, attack, coins, gun, grenade,shopping, round_count):
         self.speed = speed  
         self.health = health
         self.attack = attack 
         self.coins = coins
         self.gun = gun
         self.grenade = grenade
-        self.shopping =shopping
+        self.shopping = shopping
+        self.round_count = round_count
 
 
     def gun_upgrade(self):
@@ -20,12 +21,15 @@ class Player:
                 f"Your speed increased to {self.speed}\n"
                 f"Your attack increased to {self.attack}")
     
+
     def grenade_upgrade(self):
         self.coins-=30
         self.speed-=3
         self.attack+=5
         self.grenade = True
-        print("YOU BOUGHT GRENADE UPGRADE:")
+        print("YOU BOUGHT GRENADE UPGRADE:\n"
+                  f"Your attack increased to {self.attack}\n"
+                  f"Your speed decreased to {self.speed}")
 
     def heal(self):
         self.coins+-5
@@ -67,9 +71,9 @@ class Player:
     def shop(self):
         self.shopping = True
         while self.shopping == True:
-            print(f"1) heal:-5 coins, +10 health, \n"
-              "2) steroids:-7 coins, +2 attack \n"
-              "3) redbull:-10 coins, +2 speed\n" 
+            print(f"1) Healing Potion:-5 coins, +10 health, \n"
+              "2) Steroids:-7 coins, +2 attack \n"
+              "3) Redbull:-10 coins, +2 speed\n" 
               "ONE TIME PURCHASES:\n"
               "4) GUN UPGRADE: -15 coins, +3 speed, +5 attack\n"
               "5) GRENADE UPGRADE: -30 coins, +3 speed, +5 attack\n")
@@ -119,16 +123,25 @@ class Player:
             else:
                 print("Invalid Item: Retry")
         
+        def round (self):
+            self.round_count=-1
+
            
 p =Player(7, 100, 5, 100, False, False, False)
 
-p.shop()
-"""
-if p.coins>=15 and p.gun==False:
-    p.gun_upgrade()
-    p.display()
+z = Zombie(0,0,0)
+z.boss()
+z.display()
 
-if p.coins>=30 and p.gun==True and p.grenade==False:
-    p.grenade_upgrade()
-    p.display()"""
+while z.speed < p.speed:
+    z.health = z.health - p.attack 
+    print("You attacked the zombie! The zombie's health is {z.health} now")
+    p.health = p.health - z.attack  
+    print("The zombie attacked you! Your health is {z.health} now")
+
+while p.speed < z.speed:
+    p.health = p.health - z.attack
+    print("The zombie attacked you! Your health is {z.health} now")
+    z.health = z.health - p.attack 
+    print("You attacked the zombie! The zombie's health is {z.health} now")
 
