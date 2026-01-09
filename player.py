@@ -1,3 +1,4 @@
+from zombie import Zombie
 class Player:
     def __init__(self, speed, health, attack, coins, gun, grenade,shopping):
         self.speed = speed  
@@ -121,12 +122,4 @@ class Player:
 p =Player(7, 100, 5, 100, False, False, False)
 
 p.shop()
-"""
-if p.coins>=15 and p.gun==False:
-    p.gun_upgrade()
-    p.display()
-
-if p.coins>=30 and p.gun==True and p.grenade==False:
-    p.grenade_upgrade()
-    p.display()"""
 
