@@ -1,67 +1,34 @@
-#from player import Player
-
 class Zombie:
-    def __init__(self, speed, health, attack):
+    def __init__(self, speed, health, attack, title):
         self.speed = speed
         self.health = health
         self.attack = attack
+        self.title =title
 
-    def regular (self):
-        self.speed = 5
-        self.health = 10
-        self.attack = 5
-
-    def fast (self):
-        self.speed=10
-        self.health=7
-        self.attack = 8
-
-    def tank(self):
-        self.speed = 5
-        self.health = 25
-        self.attack = 10
-
-    def boss(self):
-        self.speed = 10
-        self.health = 50
-        self.attack = 15
 
     def display(self):
+        print(f'title: {self.title}')
         print(f'speed: {self.speed}')
-        print (f'heath: {self.health}')
+        print (f'health: {self.health}')
         print(f'attack: {self.attack}') 
-    
-    def random(self):
 
-        import random
-        random_number = random.randint(1,6)
-
-        if random_number <= 3: 
-            z.regular()
-            z.display()
+class Regular(Zombie):
+    def __init__(self):
+        super().__init__(speed=5, health=10, attack=5, title ="regular")
+        self.display()
         print("You've encountered a Regular zombie!")
-
-        if random_number == 4 or random_number == 5:
-            z.fast()
-            z.display()
-            print("You've encountered a Fast zombie!")
-    
-        if random_number == 6:
-            z.tank()
-            z.display()
+class Fast(Zombie):
+    def __init__(self):
+        super().__init__(speed=10, health=7, attack=8, title ="fast")
+        self.display()
+        print("You've encountered a Fast zombie!")
+class Tank(Zombie):
+    def __init__(self):
+        super().__init__(speed=4, health=25, attack=10, title ="tank")
+        self.display()
         print("You've encountered a Tank zombie!")
-
-z = Zombie(0,0,0)
-"""
-
-while z.speed < p.speed:
-    z.health = z.health - p.attack 
-    print("You attacked the zombie! The zombie's health is {z.health} now")
-    p.health = p.health - z.attack  
-    print("The zombie attacked you! Your health is {z.health} now")
-
-while p.speed < z.speed:
-    p.health = p.health - z.attack
-    print("The zombie attacked you! Your health is {z.health} now")
-    z.health = z.health - p.attack 
-    print("You attacked the zombie! The zombie's health is {z.health} now")"""
+class Boss(Zombie):
+    def __init__(self):
+        super().__init__(speed=7, health=50, attack=15, title ="boss")
+        self.display()
+        print("Here comes the BOSS")
