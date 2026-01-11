@@ -62,9 +62,9 @@ class Player:
        print(f'Speed: {self.speed}')
        print(f'Health: {self.health}')
        print(f'Attack: {self.attack}')
-       if self.gun ==True:
+       if self.gun:
            print("GUN UPGRADE")
-       if self.grenade ==True:
+       if self.grenade:
            print("GRENADE UPGRADE")
        if self.health <=0:
            print("You LOST")
@@ -80,8 +80,8 @@ class Player:
               "3) Redbull:-10 coins, +2 speed\n" 
               "ONE TIME PURCHASES:\n"
               "4) GUN UPGRADE: -15 coins, +3 speed, +5 attack\n"
-              "5) GRENADE UPGRADE: -30 coins, -3 speed, +5 attack\n")
-            "0)EXIT\n"
+              "5) GRENADE UPGRADE: -30 coins, -3 speed, +5 attack\n"
+            "0)EXIT\n")
             purchase=input("What to Buy? ").lower().strip()
             print(purchase)
             if purchase in ("heal","1"):
