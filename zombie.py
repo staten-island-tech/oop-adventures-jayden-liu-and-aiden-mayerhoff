@@ -2,11 +2,19 @@ from game import Player
 class Zombie:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     def __init__(self, speed, health, attack, round_count):
         self.speed = speed
         self.health = health
         self.attack = attack
         self.round_count =round_count
+=======
+    def __init__(self, speed, health, attack, title):
+        self.speed = speed
+        self.health = health
+        self.attack = attack
+        self.title =title
+>>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
 =======
     def __init__(self, speed, health, attack, title):
         self.speed = speed
@@ -32,6 +40,7 @@ class Zombie:
         import random
         random_number = random.randint(1,6)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         if random_number <= 3: 
             self.regular()
@@ -74,6 +83,8 @@ while z.round_count>=1:
 =======
 =======
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
+=======
+>>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
 class Regular(Zombie):
     def __init__(self):
         super().__init__(speed=5, health=10, attack=5, title ="regular")
@@ -95,6 +106,9 @@ class Boss(Zombie):
         self.display()
         print("Here comes the BOSS")
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
+=======
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
 =======
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
