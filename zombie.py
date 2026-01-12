@@ -1,8 +1,10 @@
+from game import Player
 class Zombie:
-    def __init__(self, speed, health, attack):
+    def __init__(self, speed, health, attack, round_count):
         self.speed = speed
         self.health = health
         self.attack = attack
+        self.round_count =round_count
 
     def regular (self):
         self.speed = 5
@@ -33,34 +35,39 @@ class Zombie:
         random_number = random.randint(1,6)
 
         if random_number <= 3: 
-            z.regular()
-            z.display()
+            self.regular()
+            self.display()
             print("You've encountered a Regular zombie!")
 
         if random_number == 4 or random_number == 5:
-            z.fast()
-            z.display()
+            self.fast()
+            self.display()
             print("You've encountered a Fast zombie!")
     
         if random_number == 6:
-            z.tank()
-            z.display()
+            self.tank()
+            self.display()
             print("You've encountered a Tank zombie!")
+    def round (self):
+        self.round_count=-1
                 
 
 z = Zombie(0,0,0)
-z.boss()
+p =Player(7, 100, 5, 100, False, False, False, 10)
+
+#p.shop()
 z.random()
 
+while z.round_count>=1:
+    while z.speed < p.speed:
+        z.health = z.health - p.attack 
+        print("You attacked the zombie! The zombie's health is {z.health} now")
+        p.health = p.health - z.attack
+        print("The zombie attacked you! Your health is {z.health} now")
 
-"""while z.speed < p.speed:
-    z.health = z.health - p.attack 
-    print("You attacked the zombie! The zombie's health is {z.health} now")
-    p.health = p.health - z.attack:
-    print("The zombie attacked you! Your health is {z.health} now")"""
-
-"""while p.speed < z.speed
-    p.health = p.health - z.attack:
-    print("The zombie attacked you! Your health is {z.health} now")
-    z.health = z.health - p.attack 
-    print("You attacked the zombie! The zombie's health is {z.health} now")"""
+    while p.speed < z.speed:
+        p.health = p.health - z.attack
+        print("The zombie attacked you! Your health is {z.health} now")
+        z.health = z.health - p.attack 
+        print("You attacked the zombie! The zombie's health is {z.health} now")
+    z.round()
