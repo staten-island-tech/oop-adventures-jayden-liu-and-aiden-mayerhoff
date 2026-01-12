@@ -31,4 +31,4 @@ class Boss(Zombie):
     def __init__(self):
         super().__init__(speed=7, health=50, attack=15, title ="boss")
         self.display()
-        print("Here comes the BOSS")
+        print("YOU ARE FINALLY FACING THE BOSS!!!")
