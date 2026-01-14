@@ -3,6 +3,7 @@ class Zombie:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     def __init__(self, speed, health, attack, round_count):
         self.speed = speed
         self.health = health
@@ -29,6 +30,13 @@ class Zombie:
         self.attack = attack
         self.title =title
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
+=======
+    def __init__(self, speed, health, attack, title):
+        self.speed = speed
+        self.health = health
+        self.attack = attack
+        self.title =title
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
 
 
     def display(self):
@@ -40,6 +48,7 @@ class Zombie:
         import random
         random_number = random.randint(1,6)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         if random_number <= 3: 
@@ -85,6 +94,8 @@ while z.round_count>=1:
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
 =======
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
+=======
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
 class Regular(Zombie):
     def __init__(self):
         super().__init__(speed=5, health=10, attack=5, title ="regular")
@@ -104,6 +115,7 @@ class Boss(Zombie):
     def __init__(self):
         super().__init__(speed=7, health=50, attack=15, title ="boss")
         self.display()
+<<<<<<< HEAD
         print("Here comes the BOSS")
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -112,3 +124,6 @@ class Boss(Zombie):
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
 =======
 >>>>>>> 65f40b1ac1744d32906f219866562fa8034a89fb
+=======
+        print("YOU ARE FINALLY FACING THE BOSS!!!")
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
