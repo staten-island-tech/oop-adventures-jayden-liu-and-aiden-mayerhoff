@@ -63,13 +63,21 @@ class Player:
        print(f'Health: {self.health}')
        print(f'Attack: {self.attack}')
        if self.gun:
+<<<<<<< HEAD
            print("GUN UPGRADE")
        if self.grenade:
            print("GRENADE UPGRADE")
        if self.health <=0:
            print("You LOST")
+=======
+           print("Gun Upgrade")
+       if self.grenade:
+           print("Grenade Upgrade")
+       if self.health <=0:
+           print("Game Over! Please Try Again!")
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
     def broke(self):
-        print("You are too poor\n"
+        print("You have an insufficient balance\n"
                 f"You have {self.coins} coins")
         
     def shop(self):
@@ -78,9 +86,15 @@ class Player:
             print(f"1) Healing Potion:-5 coins, +10 health, \n"
               "2) Steroids:-7 coins, +2 attack \n"
               "3) Redbull:-10 coins, +2 speed\n" 
+<<<<<<< HEAD
               "ONE TIME PURCHASES:\n"
               "4) GUN UPGRADE: -15 coins, +3 speed, +5 attack\n"
               "5) GRENADE UPGRADE: -30 coins, -3 speed, +5 attack\n"
+=======
+              "One Time Purchases:\n"
+              "4) Gun upgrade: -15 coins, +3 speed, +5 attack\n"
+              "5) Grenade Upgrade: -30 coins, -3 speed, +5 attack\n"
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
             "0)EXIT\n")
             purchase=input("What to Buy? ").lower().strip()
             print(purchase)
@@ -139,9 +153,15 @@ class Player:
         random_number = random.randint(1,6)
         if self.round_count == 11:
             return Boss()
+<<<<<<< HEAD
         if random_number <= 3:
             return Regular()
         elif random_number in (4,5):
+=======
+        if random_number <= 2:
+            return Regular()
+        elif random_number in (3,4):
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
             return Fast()
         else:
             return Tank()
@@ -178,7 +198,11 @@ while p.round_count<12 and p.health>0:
                 break
 
     if z.health <= 0:
+<<<<<<< HEAD
         print(f"You defeated {z.title}")
+=======
+        print(f"You defeated a {z.title} zombie")
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
         if z.title == "regular":
             p.regular_kill()
         if z.title == "fast":
@@ -189,8 +213,12 @@ while p.round_count<12 and p.health>0:
             p.boss_kill()
 
         p.round()
+<<<<<<< HEAD
         print(f"Coins: {p.coins}\n"
                 f"Round: {p.round_count}")
+=======
+        print(f"Coins: {p.coins}\n")
+>>>>>>> 906d8d7ead8e028797d6f6a931ebe4f9b5ff91d5
         p.display()
         p.shop()
 
